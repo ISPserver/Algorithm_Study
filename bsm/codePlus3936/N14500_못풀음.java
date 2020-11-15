@@ -41,54 +41,6 @@ class Main {
 
         System.out.println(max);
     }
-
-    // dfs로 깊이가 최대 4인 경우가 테트로미노, 단 ㅗ 모양은 없음
-    static void dfs(int x, int y, int depth, int sum) {
-        if (depth == 4) {
-            max = Math.max(max, sum);
-            return;
-        }
-
-        for (int i = 0; i < 4; i++) {
-            int nx = x + dx[i];
-            int ny = y + dy[i];
-
-            if (0 <= nx && nx < n && 0 <= ny && ny < m) {
-                if (visited[nx][ny] != true) {
-                    visited[nx][ny] = true;
-                    dfs(nx, ny, depth + 1, sum + map[nx][ny]);
-                    visited[nx][ny] = false;
-                }
-            }
-        }
-    }
-
-    // ㅗ 모양을 찾는다. 가운데 있는 좌표를 기준으로 세 방향을 탐색한다.
-    static void another(int x, int y) {
-        // 1. 맵의 꼭지점일때는 ㅗ 모양 불가능
-        if ((x == 0 || x == n - 1) && (y == 0 || y == m - 1)) return;
-
-        int sum = map[x][y];
-
-        // 2. 맵의 테두리일때는 모양이 하나
-        if (x == 0)
-            sum += map[x][y - 1] + map[x][y + 1] + map[x + 1][y];
-        else if (x == n - 1)
-            sum += map[x][y - 1] + map[x][y + 1] + map[x - 1][y];
-        else if (y == 0)
-            sum += map[x - 1][y] + map[x + 1][y] + map[x][y + 1];
-        else if (y == m - 1)
-            sum += map[x - 1][y] + map[x + 1][y] + map[x][y - 1];
-        else {
-        // 3. 맵의 테두리가 아닐 때는 4 개의 모양을 비교
-            sum = Math.max(sum, map[x][y] + map[x + 1][y] + map[x][y - 1] + map[x][y + 1]);
-            sum = Math.max(sum, map[x][y] + map[x - 1][y] + map[x][y - 1] + map[x][y + 1]);
-            sum = Math.max(sum, map[x][y] + map[x][y + 1] + map[x - 1][y] + map[x + 1][y]);
-            sum = Math.max(sum, map[x][y] + map[x][y - 1] + map[x - 1][y] + map[x + 1][y]);
-        }
-
-        max = Math.max(max, sum);
-    }
 }
 
 /* DFS문제 ( ㅜ 모양은 예외처리)
