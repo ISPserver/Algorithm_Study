@@ -21,8 +21,8 @@ public class test {
 			
 			token = new StringTokenizer(br.readLine(), " ");
 				
-			bw.write(Integer.parseInt(token.nextToken()) + 
-					Integer.parseInt(token.nextToken()));
+			bw.write((Integer.parseInt(token.nextToken()) + 
+					Integer.parseInt(token.nextToken()))+"");
 			
 		}
 		
