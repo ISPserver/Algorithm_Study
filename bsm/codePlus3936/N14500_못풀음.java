@@ -14,34 +14,11 @@ class Main {
         return Integer.parseInt(s);
     }
     
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-
-        n = stoi(st.nextToken());
-        m = stoi(st.nextToken());
-        map = new int[n][m];
-        visited = new boolean[n][m];
-
-        for (int i = 0; i < n; i++) {
-            st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < m; j++) {
-                map[i][j] = stoi(st.nextToken());
-            }
-        }
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                visited[i][j] = true;
-                dfs(i, j, 0, 0);
-                visited[i][j] = false;
-                another(i, j);
-            }
-        }
-
-        System.out.println(max);
+    public static void main(String[] args) {
+       
     }
 }
+
 
 /* DFS문제 ( ㅜ 모양은 예외처리)
  * 첫째줄 세로N 가로M (4 <ㅡ N,M <ㅡ 500)
