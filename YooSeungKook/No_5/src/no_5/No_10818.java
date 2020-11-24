@@ -19,17 +19,18 @@ public class No_10818 {
 	
 		StringTokenizer str = new StringTokenizer(br.readLine()," ");
 		
-		int max = 1;	
+		int max = -1000000;	
 		int min = 1000000;
 		
 		for(int i = 0; i < n; i++) {
 			
 			arr[i] = Integer.parseInt(str.nextToken());
 				
-				if(arr[i] >= max) {
-					max = arr[i];
-					
-				}else if(arr[i] <= min) {
+				if(arr[i] > max) {
+					max = arr[i];					
+				}
+				
+				if(arr[i] < min) {
 					min = arr[i];
 				}
 				
